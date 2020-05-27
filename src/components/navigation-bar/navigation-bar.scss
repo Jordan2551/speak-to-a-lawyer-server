@@ -1,0 +1,37 @@
+@import "../../assets/styles/global";
+
+.navbar{
+
+    background-color: white !important;
+    border-bottom: 2px solid $lightBlue;
+
+    a{
+        &:hover{
+            color: white;
+        }
+        color: $lightBlue !important;
+        font-weight: normal;
+        @media(max-width: $breakpoint){
+            font-size: 18px; 
+            margin-left: 5px;
+        }
+        @media(min-width: $breakpoint){
+            font-size: 20px;
+            margin-left: 10px; 
+        }
+    }
+    .brand-logo{
+        @media(max-width: $breakpoint){
+            width: 130px; 
+        }
+        @media(min-width: $breakpoint){
+            width: 180px; 
+        }
+    }
+}
+
+.navbar-toggler{
+    background-color: $lightBlue !important;
+}
+
+

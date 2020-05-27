@@ -1,0 +1,72 @@
+@import "../../assets/styles/global";
+
+.hero-bg{
+    background: url('../../assets//images/hero-bg.jpg');
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+
+    span{
+        color: $green;
+        font-weight: normal;
+    }
+
+    h1{
+        color: #ffff;
+        font-weight: bold;
+        display: block;
+        letter-spacing: 1px;
+    }
+
+    .title{
+        text-align: center;
+        justify-self: center;
+    }
+
+    .features{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .down-arrow{
+        align-self: flex-end;
+        justify-self: flex-end;
+    }
+
+    .hero-buttons{
+         display: block;
+        justify-self: center;
+    }
+
+    @media(max-width: $breakpoint){
+        height: 600px;
+        background-position: center center;
+
+        .features{flex-flow: column;}
+        .down-arrow{ 
+            img{width: $feature-img-mobile;}
+        }   
+    }
+
+    @media(min-width: $breakpoint){
+        height: 700px;
+        background-position: center bottom;
+
+        .features{flex-flow: row;}
+        .feature{margin-left: $margin-md;}
+        .down-arrow{ 
+            img{width: $feature-img-desktop;}
+        }
+    }
+
+
+}
+
+
+
+
+
+

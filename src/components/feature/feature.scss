@@ -1,0 +1,20 @@
+@import "../../assets/styles/global";
+
+.feature{
+
+    h3{
+        color: #ffff;
+        font-weight: normal;
+        margin-top: 10px;
+    }
+
+    @media(max-width: $breakpoint){
+        img{width: $feature-img-mobile;}
+    }
+
+    @media(min-width: $breakpoint){
+        img{width: $feature-img-desktop;}
+    }
+
+
+}
