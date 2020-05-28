@@ -3,10 +3,11 @@
 .hero-bg{
     background: url('../../assets//images/hero-bg.jpg');
     display: flex;
-    flex-flow: wrap;
+    flex-flow: column;
     align-items: center;
     justify-content: center;
     background-repeat: no-repeat;
+    background-size: cover;
 
     span{
         color: $green;
@@ -26,34 +27,45 @@
     }
 
     .features{
+        margin-top: $margin-md;
         text-align: center;
         display: flex;
         justify-content: center;
     }
 
-    .down-arrow{
-        align-self: flex-end;
-        justify-self: flex-end;
-    }
+    .hero-buttons{margin-top: $margin-md;}
 
-    .hero-buttons{
-         display: block;
-        justify-self: center;
+    .down-arrow{
+        margin-top: auto;
     }
 
     @media(max-width: $breakpoint){
-        height: 600px;
+        height: 470px;
         background-position: center center;
 
-        .features{flex-flow: column;}
+        h1{
+            margin-top: 40px;
+            line-height: 0px;
+        }
+
+        .features{
+            justify-content: space-evenly;
+            width: 100%;
+        }
         .down-arrow{ 
             img{width: $feature-img-mobile;}
         }   
     }
 
+    
     @media(min-width: $breakpoint){
         height: 700px;
         background-position: center bottom;
+
+        h1{
+            margin-top: 50px;
+            line-height: 10px;
+        }
 
         .features{flex-flow: row;}
         .feature{margin-left: $margin-md;}

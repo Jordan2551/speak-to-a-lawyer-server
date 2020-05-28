@@ -1,7 +1,7 @@
 import React from 'react';
 import './hero.scss';
 
-import Comment from '../../assets/images/comment.png';
+import Lawyer from '../../assets/images/lawyer.png';
 import Video from '../../assets/images/video.png';
 import Shield from '../../assets/images/shield.png';
 import DownArrow from '../../assets/images/down-arrow.png';
@@ -19,30 +19,32 @@ const Hero = () => {
             </div>
             <div className="features">
                 <Feature 
-                    title="Instant Messaging"
-                    img={Comment}
-                    alt="Instant Messaging"
+                    titleDesktop="Experienced Lawyers"
+                    titleMobile="Experienced"
+                    img={Lawyer}
+                    alt="Experienced Lawyers"
                     content=""
                 />
                 <Feature 
+                    titleDesktop="Video Chat"
+                    titleMobile="Video Chat"
                     title="Video Confrencing"
                     img={Video}
                     alt="Video Confrencing"
                     content=""
                 />
                 <Feature 
-                    title="Safe, Secure and"
+                    titleDesktop="Safe, Secure and"
+                    titleMobile="Secure"
                     titleHighlight="Legally Valid"
                     img={Shield}
                     alt="Shield"
                     content=""
-                />
+                /> 
             </div>
             <div className="hero-buttons">
                 <CustomButton text="Speak to a Lawyer Now" variation="hero-button2" img={Law} bob/>
-                <CustomButton text="Learn More" variation="hero-button1" bob/>
             </div>
-            
             <a href="#" className="down-arrow hvr-sink">
                 <img src={DownArrow} alt="Down Arrow"/>
             </a>

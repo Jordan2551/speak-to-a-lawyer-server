@@ -5,34 +5,36 @@
 body {
   margin: 0;
   font-family: 'IBM Plex Sans', sans-serif !important;
-  font-weight: 400;
+  font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   @media(max-width: $breakpoint){
     font-size: $font-mobile;
 
-    h1{
-      font-size: $h1-mobile;
-      margin-top: 40px;
-      line-height: 0px;
-    }
-
+    h1{font-size: $h1-mobile;}
     h3{font-size: $h3-mobile;}
+    p{font-size: $p-mobile;}
+
   }
 
   @media(min-width: $breakpoint){
     font-size: $font-desktop;
     
-    h1{
-      font-size: $h1-desktop;
-      margin-top: 50px;
-      line-height: 10px;
-    }
-
+    h1{font-size: $h1-desktop;}
     h3{font-size: $h3-desktop;}
+    p{font-size: $p-desktop;}
 
   }
+}
+
+
+.desktop-view{display: block;}
+.mobile-view{display: none;}
+
+@media(max-width: $breakpoint){
+  .desktop-view{display: none;}
+  .mobile-view{display: block;}
 }
 
 ::selection{

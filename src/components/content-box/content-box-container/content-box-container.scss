@@ -1,0 +1,16 @@
+@import "../../../assets/styles/global";
+
+.content-box-container{
+    display: flex;
+
+    @media(max-width: $breakpoint){
+        flex-flow: column;
+
+    }
+
+    @media(min-width: $breakpoint){
+        flex-flow: row;
+
+    }
+
+}

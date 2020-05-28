@@ -1,0 +1,37 @@
+@import "../../assets/styles/global";
+
+
+@mixin section-header-base($color, $bgColor, $paddingMobile, $paddingDesktop){
+    text-align: center;
+    background-color: $bgColor;
+
+    h3{color: $color;}
+
+    @media(max-width: $breakpoint){
+        h3{padding: $paddingMobile;}
+    }
+
+    @media(min-width: $breakpoint){
+        h3{padding: $paddingDesktop}
+    }
+
+}
+
+.section-header{
+    @include section-header-base($darkBlue, $gray, 20px, 25px);
+    @media(max-width: $breakpoint){
+        h3{font-size: $h1-mobile;}
+    }
+
+    @media(min-width: $breakpoint){
+        h3{font-size: $h1-desktop}
+    }
+}
+
+
+
+
+
+
+
+

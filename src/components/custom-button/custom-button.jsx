@@ -7,7 +7,7 @@ const CustomButton = (props) => {
     return (
         <a href={dest} className={classes}>
             {text}
-            <img src={img} alt=""/>
+            {img ? <img src={img} alt=""/> : ''}
         </a>
     );
 }

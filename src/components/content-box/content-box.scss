@@ -1,0 +1,16 @@
+@import "../../assets/styles/global";
+
+.content-box{
+    padding: 45px;
+    color: white;
+    text-align: center;
+
+    @media(max-width: $breakpoint){        
+        h3{font-size: $h1-mobile;}
+    }
+
+    @media(min-width: $breakpoint){        
+        h3{font-size: $h1-desktop;}
+    }
+
+}
