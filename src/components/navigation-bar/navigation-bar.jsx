@@ -17,7 +17,7 @@ const NavigationBar = () => {
                 <Nav className="mr-auto">
                 <Nav.Link href="#how-it-works" className="hvr-bob">How it Works</Nav.Link>
                 <Nav.Link href="#pricing" className="hvr-bob">Speak to a Lawyer Now</Nav.Link>
-                <Nav.Link href="#services" className="hvr-bob">Services</Nav.Link>
+                <Nav.Link href="#step1" className="hvr-bob">Services</Nav.Link>
                 </Nav>
                 <Nav>
                 <Nav.Link eventKey={2} href="tel:6475502918" className="hvr-bob">

@@ -8,8 +8,29 @@ import ContentBoxContainer from '../../components/content-box/content-box-contai
 
 import { STEP_CONTENT } from './step-content';
 import { SERVICE_CONTENT } from './service-content';
+import { useState } from 'react';
+import StepsContext from '../../contexts/steps/steps';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { useRef } from 'react';
+
 
 const Homepage = () => {
+
+    const [showStep2, setShowStep2] = useState(false);
+    const [showStep3, setShowStep3] = useState(false);
+
+    const serviceBoxes = useRef(<ContentBoxContainer content={SERVICE_CONTENT} variant={'service-box'}/>);
+
+    const showStep = (stepNum, practiceArea) =>{
+        if(stepNum === 2)
+            setShowStep2(true);
+        else
+            setShowStep3(true);
+        console.log("BOXES",serviceBoxes);
+        // window.scrollTo(150, serviceBoxes.current.offsetTop);
+        // Dropdown.select(practiceArea);
+    } 
+
     return (
         <section id="home">
             <Hero/>
@@ -25,13 +46,19 @@ const Homepage = () => {
                 <SectionHeader title="How Does it Work?" variation="section-header"/>
                 <ContentBoxContainer content={STEP_CONTENT} variant={'step-box'}/>
             </section>
-            <section id="services">
+            <section id="step1">
                 <SectionHeader title="Choose your Service" subtitle="Step 1 - Click the service you need help with" variation="section-header"/>
-                <ContentBoxContainer content={SERVICE_CONTENT} variant={'service-box'}/>
+                <StepsContext.Provider value={{showStep2, showStep3, showStep}}>
+                    {serviceBoxes.current}
+                </StepsContext.Provider>
             </section>
-            <section id="services">
-                <SectionHeader title="Tell us About your Case" subtitle="Step 2 - Fill out your details and payment information" variation="section-header"/>
-            </section>
+            {showStep2 ? 
+                <section id="step2">
+                    <SectionHeader title="Tell us About your Case" subtitle="Step 2 - Fill out your details and payment information" variation="section-header"/>
+                </section>
+                : ''
+            }
+            
         </section>
     );
 }

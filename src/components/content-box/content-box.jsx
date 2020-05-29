@@ -2,10 +2,13 @@ import React from 'react';
 import CustomButton from '../custom-button/custom-button';
 
 import './content-box.scss';
+import { useContext } from 'react';
+import StepsContext from '../../contexts/steps/steps';
 
 const ContentBox = (props) => {
     const { text, content, backgroundColor, buttonText, dest, showButton, variant, image } = props;
-    
+    const stepsContext = useContext(StepsContext);
+
     return (
         <div className={variant} style={{backgroundColor: backgroundColor}}>
             {
@@ -18,6 +21,7 @@ const ContentBox = (props) => {
             {
              showButton ?
                 <CustomButton 
+                    click = {() => stepsContext.showStep(2, text)}
                     text={buttonText} 
                     variation="hero-button1" 
                     dest={dest}

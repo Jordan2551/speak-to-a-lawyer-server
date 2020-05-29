@@ -3,10 +3,14 @@
 @mixin content-box-base{
     color: white;
     text-align: center;
+
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 33%;
 }
     
 .step-box{
-   
+
     padding: 35px;
 
     @include content-box-base;
@@ -24,7 +28,7 @@
    
     @include content-box-base;
 
-    padding: 35px 50px;
+    padding: 35px 15px;
 
     h3{
         margin-top: $margin-md;

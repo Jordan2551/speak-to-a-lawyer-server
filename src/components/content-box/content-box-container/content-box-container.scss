@@ -2,15 +2,10 @@
 
 .content-box-container{
     display: flex;
+    flex-wrap: wrap;
 
     @media(max-width: $breakpoint){
         flex-flow: column;
-
-    }
-
-    @media(min-width: $breakpoint){
-        flex-flow: row;
-
     }
 
 }
