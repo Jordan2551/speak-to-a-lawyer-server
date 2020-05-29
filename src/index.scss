@@ -15,6 +15,7 @@ body {
     h1{font-size: $h1-mobile;}
     h3{font-size: $h3-mobile;}
     p{font-size: $p-mobile;}
+    img{width: $feature-img-mobile}
 
   }
 
@@ -24,6 +25,7 @@ body {
     h1{font-size: $h1-desktop;}
     h3{font-size: $h3-desktop;}
     p{font-size: $p-desktop;}
+    img{width: $feature-img-desktop}
 
   }
 }
@@ -38,11 +40,11 @@ body {
 }
 
 ::selection{
-  background: $green;
+  background: $lightBlue;
 }
 
 ::-moz-selection{
-  background: $green;
+  background: $lightBlue;
 }
 
 // EFFECTS

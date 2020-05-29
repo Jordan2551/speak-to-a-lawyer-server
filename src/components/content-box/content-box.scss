@@ -1,16 +1,43 @@
 @import "../../assets/styles/global";
 
-.content-box{
-    padding: 45px;
+@mixin content-box-base{
     color: white;
     text-align: center;
+}
+    
+.step-box{
+   
+    padding: 35px;
 
-    @media(max-width: $breakpoint){        
+    @include content-box-base;
+    @media(max-width: $breakpoint){  
         h3{font-size: $h1-mobile;}
     }
 
-    @media(min-width: $breakpoint){        
+    @media(min-width: $breakpoint){ 
         h3{font-size: $h1-desktop;}
+    }
+
+}
+
+.service-box{
+   
+    @include content-box-base;
+
+    padding: 35px 50px;
+
+    h3{
+        margin-top: $margin-md;
+        font-weight: 400;
+    }
+
+    @media(max-width: $breakpoint){  
+        h3{font-size: $title-mobile;}
+    }
+
+    @media(min-width: $breakpoint){ 
+        h3{font-size: $title-desktop;}
+
     }
 
 }
