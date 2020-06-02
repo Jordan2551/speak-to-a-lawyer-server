@@ -1,6 +1,5 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Navbar from 'react-bootstrap/Navbar';
 import './navigation-bar.scss';
 

@@ -16,7 +16,7 @@ const Footer = () => {
                             <a href="#how-does-it-work">How Does it Work?</a>
                             <a href="http://localhost:3000/book">Speak to a Lawyer Now</a>
                             <a href="#services">Services</a>
-                            <a href="">Privacy Policy</a>
+                            <a href="#services">Privacy Policy</a>
                         </div>
                     </Col>
                     <Col xs={12} md={4}>

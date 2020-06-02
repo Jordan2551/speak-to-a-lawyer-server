@@ -45,7 +45,7 @@ const Hero = () => {
             <div className="hero-buttons">
                 <CustomButton text="Speak to a Lawyer Now" variation="hero-button2" img={Law} bob/>
             </div>
-            <a href="#" className="down-arrow hvr-sink">
+            <a href="#services" className="down-arrow hvr-sink">
                 <img src={DownArrow} alt="Down Arrow"/>
             </a>
         </div>

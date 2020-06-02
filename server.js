@@ -47,4 +47,5 @@ app.post('/contact', (req, res) =>{
     //SEND EMAIL HERE!
     const { practiceArea, name, email, moreInfo } = req.body;
     res.status(200).send({success: 'form subbmited successfully!'});
+    // res.status(500).send({ error: })
 });
