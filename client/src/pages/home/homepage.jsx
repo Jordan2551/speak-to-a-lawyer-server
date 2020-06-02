@@ -5,13 +5,14 @@ import Hero from '../../components/hero/hero';
 import SectionHeader from '../../components/section-header/section-header';
 import Banner from '../../components/banner/banner';
 import ContentBoxContainer from '../../components/content-box/content-box-container/content-box-container';
+import ContactForm from '../../components/contact-form/contact-form';
 
 import { STEP_CONTENT } from './step-content';
 import { SERVICE_CONTENT } from './service-content';
 import { useState } from 'react';
 import StepsContext from '../../contexts/steps/steps';
-import Dropdown from 'react-bootstrap/Dropdown';
 import { useRef } from 'react';
+import StripeButton from '../../components/stripe-button/stripe-button';
 
 
 const Homepage = () => {
@@ -54,12 +55,15 @@ const Homepage = () => {
             </section>
             {showStep2 ? 
                 <section id="step2">
-                    <SectionHeader title="Tell us About your Case" subtitle="Step 2 - Fill out your details and payment information" variation="section-header"/>
+                    <SectionHeader title="Let's set up your Call!" subtitle="Step 2 - Fill out a few details and payment information to get legal advice from a lawyer specializing in the service you need." variation="section-header"/>
+                    <StripeButton price={15} />
                 </section>
                 : ''
             }
-            
+        <ContactForm />
+
         </section>
+
     );
 }
 

@@ -43,14 +43,6 @@ body {
   .mobile-view{display: block;}
 }
 
-::selection{
-  background: $lightBlue;
-}
-
-::-moz-selection{
-  background: $lightBlue;
-}
-
 // EFFECTS
 
 .hvr-bob {
