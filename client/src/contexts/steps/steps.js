@@ -1,8 +1,8 @@
 import { createContext } from 'react';
 
 const StepsContext = createContext({
-    showStep2: false,
-    showStep3: false,
+    step2: {show: false, practiceArea: ''},
+    step3: {show: false},
     showStep: (stepNum, practiceArea) => {}
 });
 

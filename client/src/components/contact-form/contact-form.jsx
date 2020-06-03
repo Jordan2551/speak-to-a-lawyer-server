@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import StepsContext from '../../contexts/steps/steps';
 
 import { Form, Container, Button, Alert } from 'react-bootstrap';
 import './contact-form.scss';
@@ -11,7 +12,6 @@ class ContactForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            practiceArea: PRACTICE_AREAS[0],
             name: '',
             email: '',
             phone: '',
@@ -26,12 +26,12 @@ class ContactForm extends React.Component {
      }
 
      handleOnSubmit = (event) =>{
-        const { practiceArea, name, email, phone, caseDetails } = this.state;
+        const { name, email, phone, caseDetails } = this.state;
         axios({
            url: 'contact',
            method: 'post',
            data:{
-               practiceArea,
+               practiceArea: this.props.practiceArea,
                name,
                email,
                phone,
@@ -40,6 +40,7 @@ class ContactForm extends React.Component {
         }).then(res =>{
             const {message} = res.data;
             this.setState({alert: message});
+            this.props.showStep(3);
         })
         .catch(res => {
             const {message} = res.response.data;
@@ -51,12 +52,12 @@ class ContactForm extends React.Component {
     render() {
         const { header, text, variant } = this.state.alert;
         return (
-            <Container>
+            <Container className="margin-t-lg">
                 <DynamicAlert header={header} text={text} variant={variant} />
                 <Form onSubmit={this.handleOnSubmit}>
                     <Form.Group>
                     <Form.Label>Which practice area do you need help with?</Form.Label>
-                    <Form.Control id="practiceArea" as="select" value={this.state.practiceArea} onChange={this.handleOnChange}>
+                    <Form.Control id="practiceArea" defaultValue={this.props.practiceArea} as="select" value={this.state.practiceArea} onChange={this.handleOnChange}>
                         {
                             PRACTICE_AREAS.map((practiceArea, i) => (
                                 <option key={i}>{practiceArea}</option>

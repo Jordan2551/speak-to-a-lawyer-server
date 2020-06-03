@@ -37,10 +37,16 @@ $margin-lg: 50px;
     .margin-sm{margin-bottom: 10px;}
     .margin-md{margin-bottom: 25px;}
     .margin-lg{margin-bottom: 35px;}
+    .margin-t-sm{margin-top: 10px;}
+    .margin-t-md{margin-top: 25px;}
+    .margin-t-lg{margin-top: 35px;}
 }
 
 @media(min-width: $breakpoint){
     .margin-sm{margin-bottom: 15px;}
     .margin-md{margin-bottom: 35px;}
     .margin-lg{margin-bottom: 50px;}
+    .margin-t-sm{margin-top: 15px;}
+    .margin-t-md{margin-top: 35px;}
+    .margin-t-lg{margin-top: 50px;}
 }

@@ -17,17 +17,19 @@ import StripeButton from '../../components/stripe-button/stripe-button';
 
 const Homepage = () => {
 
-    const [showStep2, setShowStep2] = useState(false);
-    const [showStep3, setShowStep3] = useState(false);
+    const [step2, setStep2] = useState({show: false, practiceArea: ''});
+    const [step3, setStep3] = useState({show: false});
 
     const serviceBoxes = useRef(<ContentBoxContainer content={SERVICE_CONTENT} variant={'service-box'}/>);
 
     const showStep = (stepNum, practiceArea) =>{
         if(stepNum === 2)
-            setShowStep2(true);
+            setStep2({show: true, practiceArea: practiceArea});
         else
-            setShowStep3(true);
+            setStep3({show: true});
         console.log("BOXES",serviceBoxes);
+
+        //FIGURE OUT HOW TO SCROLL DOWN
         // window.scrollTo(150, serviceBoxes.current.offsetTop);
         // Dropdown.select(practiceArea);
     } 
@@ -49,18 +51,23 @@ const Homepage = () => {
             </section>
             <section id="step1">
                 <SectionHeader title="Choose your Service" subtitle="Step 1 - Click the service you need help with" variation="section-header"/>
-                <StepsContext.Provider value={{showStep2, showStep3, showStep}}>
+                <StepsContext.Provider value={{step2, step3, showStep}}>
                     {serviceBoxes.current}
                 </StepsContext.Provider>
             </section>
-            {showStep2 ? 
+            {step2.show ? 
                 <section id="step2">
                     <SectionHeader title="Let's set up your Call!" subtitle="Step 2 - Fill out a few details and payment information to get legal advice from a lawyer specializing in the service you need." variation="section-header"/>
+                    <ContactForm showStep={showStep} practiceArea={step2.practiceArea}/>
+                </section>
+                : ''
+            }
+            {step3.show ?
+                <section id="step2">
                     <StripeButton price={15} />
                 </section>
                 : ''
             }
-        <ContactForm />
 
         </section>
 
