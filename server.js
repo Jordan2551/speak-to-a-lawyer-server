@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+const nodemailer = require('nodemailer');
 
 if (process.env.NODE_ENV != 'production') require('dotenv').config();
 
@@ -23,8 +24,7 @@ if(process.env.NODE_ENV == 'production'){
     });
 }
 
-app.listen(port, error => {
-    if(error) throw error;
+app.listen(port, () => {
     console.log("Server running on port " + port);
 });
 
@@ -45,7 +45,54 @@ app.post('/payment', (req, res) =>{
 
 app.post('/contact', (req, res) =>{
     //SEND EMAIL HERE!
-    const { practiceArea, name, email, moreInfo } = req.body;
-    res.status(200).send({success: 'form subbmited successfully!'});
-    // res.status(500).send({ error: })
-});
+    const { practiceArea, name, email, phone, caseDetails } = req.body;
+    const output = `
+        <p>You have a new contact request </p>
+        <h3>Contact Details</h3>
+        <ul>
+            <li>Name: ${name}</li>
+            <li>Email: ${email}</li>
+            <li>Phone Number: ${phone}</li>
+            <li>Practice Area: ${practiceArea}</li>
+        </ul>
+        <h3>Case Details</h3>
+        <p>${caseDetails}</p>
+    `;
+    //TODO CHANGE OT SECURE:TRUE
+    let transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        auth: {
+            user: "requests.speaktoalawayer@gmail.com",
+            pass: "t0the1awyerweshallspeak"
+        }
+    });
+
+    let mailOptions = {
+        from: '"Speak to a Lawyer Contact" <jordan1158@gmail.com>',
+        to: 'falador@my.yorku.ca',
+        subject: 'Speak to a Lawyer Contact Request',
+        test: "Hello world",
+        html: output
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if(error){
+            res.status(500).send({ 
+                message: 
+                {
+                    header: 'Form not Submitted',
+                    text: 'Please try again later or call us at 647-550-2918',
+                    variant: 'danger'
+                }
+        });
+    }
+    res.status(200).send({ 
+        message: 
+        {
+            header: 'Form Submitted Successfully',
+            text: "Thanks for filling in your details! Please press the 'pay now' button below to pay for your first 15 minutes of conversation with a lawyer.",
+            variant: 'success'
+        }});
+    })});

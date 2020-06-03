@@ -14,7 +14,8 @@ class ContactForm extends React.Component {
             practiceArea: PRACTICE_AREAS[0],
             name: '',
             email: '',
-            moreInfo: '',
+            phone: '',
+            caseDetails: '',
             alert: { header: '', text: '', variant: ''}
          };
     }
@@ -25,7 +26,7 @@ class ContactForm extends React.Component {
      }
 
      handleOnSubmit = (event) =>{
-        const { practiceArea, name, email, moreInfo } = this.state;
+        const { practiceArea, name, email, phone, caseDetails } = this.state;
         axios({
            url: 'contact',
            method: 'post',
@@ -33,26 +34,16 @@ class ContactForm extends React.Component {
                practiceArea,
                name,
                email,
-               moreInfo
+               phone,
+               caseDetails
            }
         }).then(res =>{
-            this.setState({
-                alert: 
-                    {
-                        header: 'Form Submitted Successfully',
-                        text: "Thanks for filling in your details! Please press the 'pay now' button below to pay for your first 15 minutes of conversation with a lawyer.",
-                        variant: 'success'
-                    }
-            })
-        }).catch(error => {
-            this.setState({
-                alert: 
-                    {
-                        header: 'Form not Submitted Please check the Error Below!',
-                        text: JSON.parse(error),
-                        variant: 'danger'
-                    }
-            })
+            const {message} = res.data;
+            this.setState({alert: message});
+        })
+        .catch(res => {
+            const {message} = res.response.data;
+            this.setState({alert: message});
         });
         event.preventDefault();
     }
@@ -82,8 +73,12 @@ class ContactForm extends React.Component {
                         <Form.Control id="email" type="email" placeholder="Your Email Address" value={this.state.email} onChange={this.handleOnChange} required />
                     </Form.Group>
                     <Form.Group>
+                        <Form.Label>Phone Number</Form.Label>
+                        <Form.Control id="phone" type="tel" placeholder="Your Phone Number" value={this.state.phone} onChange={this.handleOnChange} required />
+                    </Form.Group>
+                    <Form.Group>
                         <Form.Label>Tell us more about your case</Form.Label>
-                        <Form.Control id="moreInfo" as="textarea" rows="5" value={this.state.moreInfo} onChange={this.handleOnChange} />
+                        <Form.Control id="caseDetails" as="textarea" rows="5" value={this.state.caseDetails} onChange={this.handleOnChange} />
                     </Form.Group>
                     <Button type="submit">
                         Submit
