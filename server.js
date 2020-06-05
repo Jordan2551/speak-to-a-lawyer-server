@@ -36,15 +36,30 @@ app.post('/payment', (req, res) =>{
     };
 
     stripe.charges.create(body, (stripeError, stripeRes) =>{
-        if(stripeError)
-            res.status(500).send({ error: stripeError });
-        else
-            res.status(200).send({ success: stripeRes });
+        if(stripeError){
+            res.status(500).send({ 
+                message: 
+                {
+                    header: 'Payment not Submitted!',
+                    text: 'Please check your details and try again later or call us at 647-550-2918',
+                    variant: 'danger'
+                }
+            });
+        }
+        else{
+            res.status(200).send({ 
+                message: 
+                {
+                    header: 'Payment Successful!',
+                    text: 'Thank you for choosing Speak to a Lawyer! An expert in your area of choice will be in touch with you soon!',
+                    variant: 'success'
+                }
+            });        
+        }
     });
 });
 
 app.post('/contact', (req, res) =>{
-    //SEND EMAIL HERE!
     const { practiceArea, name, email, phone, caseDetails } = req.body;
     const output = `
         <p>You have a new contact request </p>
@@ -58,7 +73,7 @@ app.post('/contact', (req, res) =>{
         <h3>Case Details</h3>
         <p>${caseDetails}</p>
     `;
-    //TODO CHANGE OT SECURE:TRUE
+    //TODO CHANGE OT SECURE:TRUE, ENV CREDENTIALS
     let transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 587,
@@ -86,13 +101,13 @@ app.post('/contact', (req, res) =>{
                     text: 'Please try again later or call us at 647-550-2918',
                     variant: 'danger'
                 }
-        });
-    }
-    res.status(200).send({ 
-        message: 
-        {
-            header: 'Form Submitted Successfully',
-            text: "Thanks for filling in your details! Please press the 'pay now' button below to pay for your first 15 minutes of conversation with a lawyer.",
-            variant: 'success'
+            });
+        }
+        res.status(200).send({ 
+            message: 
+            {
+                header: 'Form Submitted Successfully',
+                text: "Thanks for filling in your details! Please press the 'pay now' button below to pay for your first 15 minutes of conversation with a lawyer.",
+                variant: 'success'
         }});
     })});

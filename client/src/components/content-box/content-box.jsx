@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import StepsContext from '../../contexts/steps/steps';
 
 const ContentBox = (props) => {
-    const { text, content, backgroundColor, buttonText, dest, showButton, variant, image } = props;
+    const { text, content, backgroundColor, buttonText, showButton, buttonDest, variant, image } = props;
     const stepsContext = useContext(StepsContext);
 
     return (
@@ -24,7 +24,7 @@ const ContentBox = (props) => {
                     click = {() => stepsContext.showStep(2, text)}
                     text={buttonText} 
                     variation="hero-button1" 
-                    dest={dest}
+                    dest={buttonDest}
                     bob
                 /> : ''
              }

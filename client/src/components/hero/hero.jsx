@@ -43,9 +43,9 @@ const Hero = () => {
                 /> 
             </div>
             <div className="hero-buttons">
-                <CustomButton text="Speak to a Lawyer Now" variation="hero-button2" img={Law} bob/>
+                <CustomButton text="Speak to a Lawyer Now" variation="hero-button2" dest="#step1" img={Law} bob/>
             </div>
-            <a href="#services" className="down-arrow hvr-sink">
+            <a href="#step1" className="down-arrow hvr-sink">
                 <img src={DownArrow} alt="Down Arrow"/>
             </a>
         </div>

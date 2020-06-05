@@ -8,7 +8,7 @@ const ContentBoxContainer = (props) => {
     return (
         <div className="content-box-container">
             {
-                content.map(({text, buttonText, backgroundColor, content, showButton, image}, i) => (
+                content.map(({text, buttonText, backgroundColor, content, showButton, buttonDest, image}, i) => (
                     <ContentBox
                         key={i}
                         text={text}
@@ -16,6 +16,7 @@ const ContentBoxContainer = (props) => {
                         backgroundColor={backgroundColor}
                         content={content}
                         showButton={showButton}
+                        buttonDest={buttonDest}
                         image={image}
                         variant={variant}
                     />

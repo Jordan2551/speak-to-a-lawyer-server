@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
-import StepsContext from '../../contexts/steps/steps';
+import React from 'react';
 
-import { Form, Container, Button, Alert } from 'react-bootstrap';
+import { Form, Container, Button } from 'react-bootstrap';
 import './contact-form.scss';
 import PRACTICE_AREAS from './practice-areas-content';
 import axios from 'axios';

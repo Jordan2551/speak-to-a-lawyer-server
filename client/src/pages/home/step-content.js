@@ -4,7 +4,8 @@ export const STEP_CONTENT = [
         buttonText: "Choose your Service",
         backgroundColor: "#36A769",
         content: "Select the practice area you are interested in from our wide variety of legal specializations. If you can’t figure it out then simply give us a call or contact us so we can figure it out together!",
-        showButton: true
+        showButton: true,
+        buttonDest: '#step1'
     },
     {
         text: "Step 2",
