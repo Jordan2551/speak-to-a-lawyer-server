@@ -7,9 +7,7 @@
     "yarn": "1.22.4"
   },
   "scripts": {
-    "client": "cd client && yarn start",
     "server": "nodemon server.js",
-    "build": "yarn build",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "start": "node server.js"
   },
