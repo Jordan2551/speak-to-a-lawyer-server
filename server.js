@@ -79,8 +79,8 @@ app.post('/contact', (req, res) =>{
         port: 587,
         secure: false,
         auth: {
-            user: "requests.speaktoalawayer@gmail.com",
-            pass: "t0the1awyerweshallspeak"
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASSWORD
         }
     });
 
