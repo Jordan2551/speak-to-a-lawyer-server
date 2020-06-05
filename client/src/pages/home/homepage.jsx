@@ -13,6 +13,7 @@ import { useState } from 'react';
 import StepsContext from '../../contexts/steps/steps';
 import { useRef } from 'react';
 import PaymentForm from '../../components/payment-form/payment-form';
+import Banner from '../../components/banner/banner';
 
 
 const Homepage = () => {
@@ -34,6 +35,11 @@ const Homepage = () => {
     return (
         <section id="home">
             <Hero/>
+            <Banner>
+                <h3>
+                    Looking to quickly speak to a lawyer? Fill out our <a href="#step2" onClick={() => showStep(2)}>contact form</a> to get in touch with an expert fast!
+                </h3>
+            </Banner>
             <section id="how-it-works">
                 <SectionHeader title="How Does it Work?" variation="section-header"/>
                 <ContentBoxContainer content={STEP_CONTENT} variant={'step-box'}/>

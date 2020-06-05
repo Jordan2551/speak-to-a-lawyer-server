@@ -6,7 +6,6 @@ const Banner = (props) => {
         <div className="banner">
             {props.children}
         </div>
-       
     );
 }
 
