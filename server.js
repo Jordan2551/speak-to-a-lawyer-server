@@ -85,8 +85,8 @@ app.post('/contact', (req, res) =>{
     });
 
     let mailOptions = {
-        from: '"Speak to a Lawyer Contact" <jordan1158@gmail.com>',
-        to: 'falador@my.yorku.ca',
+        from: 'Speak to a Lawyer Contact',
+        to: 'acharney@kormans.ca',
         subject: 'Speak to a Lawyer Contact Request',
         test: "Hello world",
         html: output
